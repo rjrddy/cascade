@@ -54,6 +54,10 @@ model Category {
 	parentId  String?
 	parent    Category? @relation("CategoryHierarchy", fields: [parentId], references: [id])
 	children  Category[] @relation("CategoryHierarchy")
+	// back-relations
+	transactions Transaction[]
+	budgets      Budget[]
+	rules        Rule[]
 }
 
 model Transaction {
